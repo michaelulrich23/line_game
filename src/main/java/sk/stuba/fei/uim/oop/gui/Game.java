@@ -28,45 +28,22 @@ public class Game {
         JLabel radius = new JLabel("Radius");
         JLabel spacing = new JLabel("Spacing");
 
-        JSlider lengthSlider = new JSlider(JSlider.VERTICAL, 20, 200, 50);
-        lengthSlider.setMinorTickSpacing(10);
-        lengthSlider.setMajorTickSpacing(10);
-        lengthSlider.setSnapToTicks(true);
-        lengthSlider.setPaintTicks(true);
-        lengthSlider.setPaintLabels(true);
-        lengthSlider.addChangeListener(logic);
-
-        JSlider radiusSlider = new JSlider(JSlider.VERTICAL, 1, 20, 5);
-        radiusSlider.setMinorTickSpacing(1);
-        radiusSlider.setMajorTickSpacing(1);
-        radiusSlider.setSnapToTicks(true);
-        radiusSlider.setPaintTicks(true);
-        radiusSlider.setPaintLabels(true);
-        radiusSlider.addChangeListener(logic);
-
-        JSlider spacingSlider = new JSlider(JSlider.VERTICAL, 1, 20, 5);
-        spacingSlider.setMinorTickSpacing(1);
-        spacingSlider.setMajorTickSpacing(1);
-        spacingSlider.setSnapToTicks(true);
-        spacingSlider.setPaintTicks(true);
-        spacingSlider.setPaintLabels(true);
-        spacingSlider.addChangeListener(logic);
-
-        String shapes[]={"Kruh","Štvorec","Presypacie hodiny"};
-        JComboBox shapesCombo = new JComboBox(shapes);
-
-        sideMenu.setLayout(new GridLayout(3, 1));
+        sideMenu.setLayout(new BorderLayout());
         labelMenu.setLayout(new GridLayout(1, 3));
         sliderMenu.setLayout(new GridLayout(1, 3));
+
         labelMenu.add(length);
         labelMenu.add(radius);
         labelMenu.add(spacing);
-        sideMenu.add(labelMenu);
-        sliderMenu.add(lengthSlider);
-        sliderMenu.add(radiusSlider);
-        sliderMenu.add(spacingSlider);
-        sideMenu.add(sliderMenu);
-        sideMenu.add(shapesCombo);
+        sideMenu.add(labelMenu, BorderLayout.PAGE_START);
+
+        sliderMenu.add(logic.getLengthSlider());
+        sliderMenu.add(logic.getRadiusSlider());
+        sliderMenu.add(logic.getSpacingSlider());
+        sideMenu.add(sliderMenu, BorderLayout.CENTER);
+
+        sideMenu.add(logic.getShapesCombo(), BorderLayout.PAGE_END);
+
         frame.add(sideMenu, BorderLayout.EAST);
 
         frame.setVisible(true);

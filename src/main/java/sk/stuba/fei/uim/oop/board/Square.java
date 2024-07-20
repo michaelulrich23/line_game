@@ -9,9 +9,9 @@ public class Square extends Shape{
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.BLUE);
-        g.fillRect(this.x, this.y, this.radius*2, this.radius*2);
+        g.setColor(Color.RED);
+        g.fillRect(this.x-radius/2, this.y-radius/2, this.radius, this.radius);
     }
 }

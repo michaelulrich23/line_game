@@ -22,7 +22,7 @@ public class Line extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        ((Graphics2D) g).setStroke(new BasicStroke(3));
+        ((Graphics2D) g).setStroke(new BasicStroke(5));
         g.setColor(Color.BLUE);
         g.drawLine(this.x, this.y, this.endX, this.endY);
     }

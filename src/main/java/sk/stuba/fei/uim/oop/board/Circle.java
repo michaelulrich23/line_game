@@ -9,9 +9,9 @@ public class Circle extends Shape{
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
+    public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.BLUE);
-        g.fillOval(this.x, this.y, this.radius, this.radius);
+        g.setColor(Color.RED);
+        g.fillOval(this.x-radius/2, this.y-radius/2, this.radius, this.radius);
     }
 }
